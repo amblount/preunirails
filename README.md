@@ -3,9 +3,7 @@ A form submission tool for Parents to register their students in Preschool.
 # Team
 Alivia Blount- Lead Developer
 Product Manager
- - 
 Database Designer
- -
 Desginers
 
  - Michella Ore
