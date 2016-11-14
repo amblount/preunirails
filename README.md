@@ -7,8 +7,9 @@ Product Manager
 Database Designer
  -
 Desginers
+
  - Michella Ore
- - 
+ 
 User Experience Designer
 
 # Design
@@ -17,8 +18,8 @@ User Experience Designer
 ## User Stories
 
 ## Schema
-()[https://github.com/amblount/preunirails/blob/master/public/images/schema2.png]
-()[https://github.com/amblount/preunirails/blob/master/public/images/schema.png]
+![](https://github.com/amblount/preunirails/blob/master/public/images/schema2.png)
+![](https://github.com/amblount/preunirails/blob/master/public/images/schema.png)
 
 # Deployment Links
 AWS
