@@ -1,9 +1,28 @@
-# README
+# Pre Uni
+A form submission tool for Parents to register their students in Preschool.
+# Team
+Alivia Blount- Lead Developer
+Product Manager
+ - 
+Database Designer
+ -
+Desginers
+ - Michella Ore
+ - 
+User Experience Designer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Design
+## WireFrames
 
-Things you may want to cover:
+## User Stories
+
+## Schema
+()[https://github.com/amblount/preunirails/blob/master/public/images/schema2.png]
+()[https://github.com/amblount/preunirails/blob/master/public/images/schema.png]
+
+# Deployment Links
+AWS
+Heroku
 
 * Ruby version
 
