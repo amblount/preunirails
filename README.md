@@ -1,9 +1,14 @@
 # Pre Uni
 A form submission tool for Parents to register their students in Preschool.
 # Team
+
 Alivia Blount- Lead Developer
-Product Manager
+
+Product Management
+[Process](https://docs.google.com/document/d/1DHwXnhy9l3TKiTCmtHTHdiRg-R2KZyQxa-IIvgKqj9E/edit)
+
 Database Designer
+
 Desginers
 
  - Michella Ore
@@ -11,9 +16,13 @@ Desginers
 User Experience Designer
 
 # Design
+## WDI32 Final Project 
+[requirements](https://github.com/sf-wdi-gaia/project-4)
 ## WireFrames
+[wireframes document](https://github.com/amblount/preunirails/blob/master/public/wireframes.md)
 
 ## User Stories
+[user stories document](https://github.com/amblount/preunirails/blob/master/public/user_stories.md)
 
 ## Schema
 ![](https://github.com/amblount/preunirails/blob/master/public/images/schema2.png)
