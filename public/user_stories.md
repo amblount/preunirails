@@ -11,76 +11,17 @@
 	- User can view a completed form when all form fields are filled out
 	- User can view which forms have been completed or are in progress from the form/index page
 	- User can 
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
 
 
 2. Sprint 2
 
 	- User can 
-	- User can 
-	- User can 
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
 
 3. Sprint 3
 
 	- User can 
-	- User can 
-	- User can 
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-
+	
 4. Sprint 4
 
 	- User can 
-	- User can 
-	- User can 
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
-	- User can
+	
