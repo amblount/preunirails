@@ -15,13 +15,31 @@
 
 2. Sprint 2
 
+	- User can select their user type (parent or provider)
+	- User can create an account as a parent
+	- User can create an account as a provider
+	- User can login to their account as a parent
+	- User can login to their account as a provider
+	- User can select their location from a google map of neighborhoods
+	- User can view 3 nearest providers to their input location
+	- User can view the show page for a provider
+	- User can navigate to the website of the provider from the provider show page
+	- User can click the apply button from the show page after login to add an open application to that preschool form their show page
+	- User can view their profile page and view their open applications
 	- User can 
 
-3. Sprint 3
+3. Sprint 2.5
+	- User can view their provider index page
+	- User can preview payments from provider index page
+	- User can preview all registered students in their school
+	- User can click on
+	- User can 
+
+4. Sprint 3
 
 	- User can 
 	
-4. Sprint 4
+5. Sprint 4
 
 	- User can 
 	
