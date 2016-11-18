@@ -31,6 +31,7 @@ class DeviseCreateGaurdians < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
       t.string :name
+      t.references :neighborhood
       t.string :phone
       t.string :email
       t.string :full_address
