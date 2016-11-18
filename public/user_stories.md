@@ -32,7 +32,7 @@
 	- User can view their provider index page
 	- User can preview payments from provider index page
 	- User can preview all registered students in their school
-	- User can click on
+	- User can click on 
 	- User can 
 
 4. Sprint 3
