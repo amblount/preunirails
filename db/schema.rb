@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117211453) do
+ActiveRecord::Schema.define(version: 20161118234254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "centers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "full_address"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.integer  "neighborhood_id"
+    t.string   "website"
+    t.integer  "capacity"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["neighborhood_id"], name: "index_centers_on_neighborhood_id", using: :btree
+  end
 
   create_table "form_field_instances", force: :cascade do |t|
     t.integer  "form_field_id"
@@ -39,7 +59,6 @@ ActiveRecord::Schema.define(version: 20161117211453) do
     t.integer  "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "content"
     t.index ["form_id"], name: "index_form_instances_on_form_id", using: :btree
   end
 
@@ -49,6 +68,71 @@ ActiveRecord::Schema.define(version: 20161117211453) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "gaurdians", force: :cascade do |t|
+    t.string   "email"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "name"
+    t.integer  "neighborhood_id"
+    t.string   "phone"
+    t.string   "full_address"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_gaurdians_on_email", unique: true, using: :btree
+    t.index ["neighborhood_id"], name: "index_gaurdians_on_neighborhood_id", using: :btree
+    t.index ["reset_password_token"], name: "index_gaurdians_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string   "email"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "full_address"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_providers_on_email", unique: true, using: :btree
+    t.index ["neighborhood_id"], name: "index_providers_on_neighborhood_id", using: :btree
+    t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
+  end
+
+  add_foreign_key "centers", "neighborhoods"
   add_foreign_key "form_field_instances", "form_fields"
   add_foreign_key "form_field_instances", "form_instances"
   add_foreign_key "form_fields", "forms"
