@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :gaurdians
   get 'form_fields/show'
 
   get 'form_fields/new'
