@@ -1,0 +1,15 @@
+<div class=container>
+<% @centers.each do |c| %>
+	<div class="container">
+		<h5><%= link_to c.name, centers_path(c) %></h5>
+		<ul>	
+			<li><strong>Phone:</strong> <%= c.phone %></li>
+			<li><strong>Email:</strong> <%= c.email %></li>
+			<li><strong>Address:</strong> <%= c.full_address %></li>
+			<li><strong>Maximum Student Enrollment:</strong> <%= c.capacity %></li>
+			<li><%= link_to "website", c.website %></li>
+			
+		</ul>
+	</div>
+<% end %>
+</div>
