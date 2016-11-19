@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root "forms#index"
+
+  get 'centers' => "centers#index"
+
+  get 'centers/show' => "centers#show"
+
+  
   devise_for :gaurdians
   devise_for :providers
   get 'form_fields/show'

@@ -1,4 +1,8 @@
-<h1>Forms#index</h1>
-<p>Find me in app/views/forms/index.html.erb</p>
-
-
+<div class="container">
+	<h3>Forms</h3>
+		<ol type="I">
+			<% @forms.each do |f| %>
+				<li class="form-item"><%= link_to f.name, form_path(f.id) %></li>
+			<% end %>
+		</ol>		
+</div>
