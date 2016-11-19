@@ -21,8 +21,8 @@ centers = [
 		capacity: 15,
 		neighborhood_id: 1,
 		phone: "510 835-0131",
-		email: "",
-		website: "null",
+		email: "N/A",
+		website: "N/A",
 		full_address: "733 Beatie St, Oakland, CA 94606",
 		address: "733 Beatie St",
 		city: "Oakland",
@@ -81,7 +81,7 @@ centers = [
 		capacity: 32,
 		neighborhood_id: 1, 
 		phone: "510-835-4012",
-		email: "",
+		email: "N/A",
 		website: "http://www.4c-alameda.org/dev2/index.php/parents-menu/bright-future-early-learning-center",
 		full_address: "1515 Clay St. Suite 146, Oakland, CA 94612",
 		address: "1515 Clay St. Suite 146",
@@ -141,8 +141,8 @@ centers = [
 		capacity: 62,
 		neighborhood_id: 1, 
 		phone: "510-430-1322",
-		email: "",
-		website: "null",
+		email: "N/A",
+		website: "N/A",
 		full_address: "8115 Fontaine St, Oakland, CA 94605",
 		address: "8115 Fontaine St",
 		city: "Oakland",
@@ -186,7 +186,7 @@ centers = [
 		capacity: 118,
 		neighborhood_id: 1, 
 		phone: "510-535-6106",
-		email: "null",
+		email: "N/A",
 		website: "http://www2.oaklandnet.com/government/o/DHS/o/ChildrenYouthServices/OAK022078",
 		full_address: "1155 35th Avenue Oakland CA 94601",
 		address: "1155 35th Ave, Oakland",
@@ -195,10 +195,11 @@ centers = [
 		zipcode: 94601,
 		country: "USA"
 
-	},
+	}
 ]
 
-Center.create(centers)
+Neighborhood.create(name: "Montclair")
+Center.create!(centers)
 Form.create(name: "Enrollment Agreement")
 Form.create(name: "Identification and Student Emergency Form")
 Form.create(name: "Parents Rights Form A")
