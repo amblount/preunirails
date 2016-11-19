@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "forms#index"
   devise_for :gaurdians
   devise_for :providers
   get 'form_fields/show'

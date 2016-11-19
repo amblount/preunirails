@@ -14,5 +14,6 @@ class FormsController < ApplicationController
   end
 
   def index
+    @forms = Form.all
   end
 end
