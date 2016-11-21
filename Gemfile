@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#formtastic
+gem 'formtastic', '~> 3.0'
 # devise
 gem 'devise'
 # foundation

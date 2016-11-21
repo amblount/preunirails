@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118234254) do
+ActiveRecord::Schema.define(version: 20161121192938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20161118234254) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["neighborhood_id"], name: "index_centers_on_neighborhood_id", using: :btree
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string   "last_name"
+    t.integer  "center_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_families_on_center_id", using: :btree
   end
 
   create_table "form_field_instances", force: :cascade do |t|
@@ -127,14 +135,18 @@ ActiveRecord::Schema.define(version: 20161118234254) do
     t.integer  "neighborhood_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "center_id"
+    t.index ["center_id"], name: "index_providers_on_center_id", using: :btree
     t.index ["email"], name: "index_providers_on_email", unique: true, using: :btree
     t.index ["neighborhood_id"], name: "index_providers_on_neighborhood_id", using: :btree
     t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "centers", "neighborhoods"
+  add_foreign_key "families", "centers"
   add_foreign_key "form_field_instances", "form_fields"
   add_foreign_key "form_field_instances", "form_instances"
   add_foreign_key "form_fields", "forms"
   add_foreign_key "form_instances", "forms"
+  add_foreign_key "providers", "centers"
 end
