@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121192938) do
+ActiveRecord::Schema.define(version: 20161121193224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 20161121192938) do
     t.integer  "capacity"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "provider_id"
     t.index ["neighborhood_id"], name: "index_centers_on_neighborhood_id", using: :btree
+    t.index ["provider_id"], name: "index_centers_on_provider_id", using: :btree
   end
 
   create_table "families", force: :cascade do |t|
@@ -143,6 +145,7 @@ ActiveRecord::Schema.define(version: 20161121192938) do
   end
 
   add_foreign_key "centers", "neighborhoods"
+  add_foreign_key "centers", "providers"
   add_foreign_key "families", "centers"
   add_foreign_key "form_field_instances", "form_fields"
   add_foreign_key "form_field_instances", "form_instances"
