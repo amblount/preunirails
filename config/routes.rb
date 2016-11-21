@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  root "forms#index"
+  #root "centers#index"
+  #root "providers/sessions#new"
   # root "devise/registrations#new"
-
-  get 'centers' => "centers#index"
-
-  get 'centers/show' => "centers#show"
   
   devise_for :gaurdians, controllers: {
     sessions: 'gaurdians/sessions'
@@ -12,6 +9,9 @@ Rails.application.routes.draw do
   devise_for :providers, controllers: {
     sessions: 'providers/sessions'
   }
+
+  resources :centers, only: [:index, :show]
+
   get 'form_fields/show'
 
   get 'form_fields/new'
