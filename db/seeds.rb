@@ -198,7 +198,21 @@ centers = [
 	}
 ]
 
-Neighborhood.create(name: "Montclair")
+
+neighborhoods = [
+  {name: "Montclair"},	
+  {name: "Lake Merritt Park"},
+  {name: "Piedmont"},
+  {name: "Upper Laurel"},
+  {name: "Glenview"},
+  {name: "Adams Point"},
+  {name: "Rockridge"},
+  {name: "Temescal"},
+  {name: "Uptown"},
+  {name: "Produce and Waterfront"},
+  {name: "Fruitvale"}
+]
+Neighborhood.create(neighborhoods)
 Center.create!(centers)
 Form.create(name: "Enrollment Agreement")
 Form.create(name: "Identification and Student Emergency Form")

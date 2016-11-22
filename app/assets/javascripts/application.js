@@ -18,5 +18,5 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-	console.log("Hi2")
+	$('select').material_select();
  });

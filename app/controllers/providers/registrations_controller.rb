@@ -6,11 +6,11 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/sign_up
   def new
+    @center_options = Center.all.collect {|c| [ c.name, c.id ] }
+    @neighborhood_options = Neighborhood.all.collect {|n| [ n.name, n.id ] }
+    
     super
     build_resource()
-    # self.resource = Provider.new(sign_in_params)
-    @center_options = Center.all.collect {|c| [ c.name, c.id ] }
-
   end
 
   # POST /resource
