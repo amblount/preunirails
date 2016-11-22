@@ -1,36 +1,19 @@
 Rails.application.routes.draw do
-  root "forms#index"
-
-  get 'centers' => "centers#index"
-
-  get 'centers/show' => "centers#show"
-
+  root "centers#index"
   
-  devise_for :gaurdians
-  devise_for :providers
-  get 'form_fields/show'
+  devise_for :gaurdians, controllers: {
+    sessions: 'gaurdians/sessions', registrations: 'gaurdians/registrations'
+  }
+  devise_for :providers, controllers: {
+    sessions: 'providers/sessions', registrations: 'providers/registrations'
+  }
 
-  get 'form_fields/new'
+  resources :centers, only: [:index, :show]
 
-  get 'form_fields/edit'
-
-  get 'form_fields/index'
-
-  get 'form_instances/show'
-
-  get 'form_instances/new'
-
-  get 'form_instances/edit'
-
-  get 'form_instances/index'
-
-  get 'forms/new'
-
-  get 'forms/edit'
-
-  get 'forms/index'
+  resources :form_fields
 
   resources :forms
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :form_instances
+
 end

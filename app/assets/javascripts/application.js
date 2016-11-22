@@ -16,3 +16,7 @@
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+	$('select').material_select();
+ });
