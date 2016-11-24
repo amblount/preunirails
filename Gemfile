@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
-
-
+# environment variable
+gem "figaro"
+#formtastic
+gem 'formtastic', '~> 3.0'
+# devise
+gem 'devise'
+# foundation
+gem 'foundation-rails'
+#materialize
+gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -22,6 +30,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# jquery turbolinks
+gem 'jquery-turbolinks'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
