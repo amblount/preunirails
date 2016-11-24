@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# environment variable
+gem "figaro"
 #formtastic
 gem 'formtastic', '~> 3.0'
 # devise

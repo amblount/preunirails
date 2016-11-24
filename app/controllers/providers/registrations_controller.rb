@@ -6,17 +6,36 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/sign_up
   def new
+
     @center_options = Center.all.collect {|c| [ c.name, c.id ] }
     @neighborhood_options = Neighborhood.all.collect {|n| [ n.name, n.id ] }
     
+    
+    @provider = build_resource()
     super
-    build_resource()
+
+    p @provider.errors
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+def create
+    build_resource(sign_up_params)
+
+    if resource.save
+      yield resource if block_given?
+      if resource.active_for_authentication?  
+        sign_up(resource_name, resource)
+        respond_with resource, :location => after_sign_up_path_for(resource)
+      else
+        expire_data_after_sign_in!
+        respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      respond_with resource
+    end
+  end
+
 
   # GET /resource/edit
   # def edit
@@ -55,9 +74,11 @@ class Providers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    # super(resource)
+    p "AFTER SIGN UP PATH"
+    provider_path(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
@@ -68,7 +89,7 @@ class Providers::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |provider_params|
-      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id)
+      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
     end
   end
 end
