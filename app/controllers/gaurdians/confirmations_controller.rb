@@ -1,4 +1,4 @@
-class Gaurdians::ConfirmationsController < Devise::ConfirmationsController
+class Guardians::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
   #   super

@@ -198,7 +198,6 @@ centers = [
 	}
 ]
 
-
 neighborhoods = [
   {name: "Montclair"},	
   {name: "Lake Merritt Park"},
@@ -212,6 +211,8 @@ neighborhoods = [
   {name: "Produce and Waterfront"},
   {name: "Fruitvale"}
 ]
+
+
 Neighborhood.create(neighborhoods)
 Center.create!(centers)
 Form.create(name: "Enrollment Agreement")

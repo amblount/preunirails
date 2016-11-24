@@ -1,6 +1,6 @@
-class DeviseCreateGaurdians < ActiveRecord::Migration[5.0]
+class DeviseCreateGuardians < ActiveRecord::Migration[5.0]
   def change
-    create_table :gaurdians do |t|
+    create_table :guardians do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -46,8 +46,8 @@ class DeviseCreateGaurdians < ActiveRecord::Migration[5.0]
       t.timestamps null: false
     end
 
-    add_index :gaurdians, :email,                unique: true
-    add_index :gaurdians, :reset_password_token, unique: true
+    add_index :guardians, :email,                unique: true
+    add_index :guardians, :reset_password_token, unique: true
     # add_index :gaurdians, :confirmation_token,   unique: true
     # add_index :gaurdians, :unlock_token,         unique: true
   end
