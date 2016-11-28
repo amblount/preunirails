@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'providers/show'
 
   root "centers#index"
   
@@ -9,6 +8,15 @@ Rails.application.routes.draw do
   devise_for :providers, controllers: {
     sessions: 'providers/sessions', registrations: 'providers/registrations'
   }
+
+  devise_scope :provider do
+    get '/signout', to: 'devise/sessions#destroy', as: :"provider/signout"
+  end
+
+  devise_scope :guardian do
+    get '/signout', to: 'devise/sessions#destroy', as: :"guardian/signout"
+  end
+  resources :guardians
 
   resources :centers
 

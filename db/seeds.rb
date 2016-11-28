@@ -214,7 +214,7 @@ neighborhoods = [
 
 
 Neighborhood.create(neighborhoods)
-Center.create!(centers)
+Center.create(centers)
 Form.create(name: "Enrollment Agreement")
 Form.create(name: "Identification and Student Emergency Form")
 Form.create(name: "Parents Rights Form A")
