@@ -8,7 +8,9 @@ A form submission tool for Parents to register their students in Preschool.
 Alivia Blount- Lead Developer
 
 Product Management
+
 [Process](https://docs.google.com/document/d/1DHwXnhy9l3TKiTCmtHTHdiRg-R2KZyQxa-IIvgKqj9E/edit)
+
 [Trello](https://trello.com/preuni)
 
 # Design
@@ -33,10 +35,12 @@ Product Management
 [Heroku]()
 
 Login Guardian
+
 email: jreinmann@gmail.com
 password: 123456
 
 Login Provider
+
 email: creinmann@gmail.com
 password: 123456
 
