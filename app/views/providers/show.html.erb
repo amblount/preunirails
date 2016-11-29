@@ -1,7 +1,17 @@
-<h6>Welcome <%= @provider.name %></h6>
+<div class="container">
+	<h6>Welcome <%= @provider.name %></h6>
+	<h5><%= link_to @center.name, center_path(@center.id) %></h5>
+		<ul>	
+			<li><strong>Phone:</strong> <%= @center.phone %></li>
+			<li><strong>Email:</strong> <%= @center.email %></li>
+			<li><strong>Address:</strong> <%= @center.full_address %></li>
+			<li><strong>Maximum Student Enrollment:</strong> <%= @center.capacity %></li>
+			<li><%= link_to "website", @center.website %></li>	
+		</ul>
 
-Center <%= %>
-<%= %>
-<%= %>
-<%= %>
-<%= %>
+		
+
+</div>
+
+
+

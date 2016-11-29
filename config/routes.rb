@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :center_children
+  resources :child_family_guardian_providers
+  resources :children
   root "centers#index"
   
   devise_for :guardians, controllers: {

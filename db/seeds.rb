@@ -212,6 +212,52 @@ neighborhoods = [
   {name: "Fruitvale"}
 ]
 
+Child.create(
+	first_name: "Carla",
+	last_name: "Johnson",
+	date_of_birth: "02-02-2012",
+	center_id: 1
+	)
+Child.create(
+	first_name: "Ben",
+	last_name: "Johnson",
+	date_of_birth: "02-02-2013",
+	center_id: 1
+	)
+Child.create(
+	first_name: "Keith",
+	last_name: "Johnson",
+	date_of_birth: "02-02-2014",
+	center_id: 1
+	)
+
+Provider.create(
+		center_id: 1,
+		name: "Cynthia",
+		full_address: "1234 cannon street, Oakland, CA 94606",
+		address: "1234 cannon street",
+		city: "Oakland",
+		state: "CA",
+		neighborhood_id: 1,
+		zipcode: 94606,
+		email: "creinmann@gmail.com",
+		phone: "162-283-2938",
+		password: "123456"
+)
+
+Guardian.create(
+		name: "Reinmann",
+		full_address: "1234 cannon street, Oakland, CA 94606",
+		address: "1234 cannon street",
+		city: "Oakland",
+		state: "CA",
+		zipcode: 94606,
+		neighborhood_id: 1,
+		email: "jreinmann@gmail.com",
+		phone: "163-283-2938",
+		password: "123456"
+		)
+
 
 Neighborhood.create(neighborhoods)
 Center.create(centers)
