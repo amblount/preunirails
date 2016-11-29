@@ -9,10 +9,18 @@
 			<li><%= link_to "website", @center.website %></li>	
 		</ul>
 			<h5>Children</h5>
-			<p>Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
+			Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
 			<%= @cfgp.child.last_name %><br>
 			DOB: <%= @cfgp.child.date_of_birth %><br>
-			Center Name: <%= @center.name %><p>
+			Center Name: <%= @center.name %><br>
+			
+			<h5>Guardians</h5>
+			<ul>
+				<li><%= link_to @guardian.name, guardian_path(@guardian.id) %></li>
+				<li><%= @guardian.email %></li>
+				<li><%= @guardian.phone %></li>
+				<li><%= @guardian.full_address %></li>
+			</ul>
 </div>
 
 
