@@ -4,6 +4,10 @@ A form submission tool for Parents to register their students in Preschool.
 # Walkthrough
 ![](https://github.com/amblount/preunirails/blob/master/public/PreUni.gif)
 
+# Prior Repos
+[one](https://github.com/amblount/preuni)
+[two](https://github.com/amblount/preuni_WDI32-familiy-rel)
+
 # Team
 Alivia Blount- Lead Developer
 
@@ -45,6 +49,7 @@ email: creinmann@gmail.com
 password: 123456
 
 # Technology Used
-[]()
+[Doc](https://github.com/amblount/preunirails/blob/master/public/technology.md)
 
 # Approach
+[Doc](https://github.com/amblount/preunirails/blob/master/public/approach.md)
