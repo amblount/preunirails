@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121193958) do
+ActiveRecord::Schema.define(version: 20161129010443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "center_children", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "center_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_center_children_on_center_id", using: :btree
+    t.index ["child_id"], name: "index_center_children_on_child_id", using: :btree
+  end
 
   create_table "centers", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +44,19 @@ ActiveRecord::Schema.define(version: 20161121193958) do
     t.integer  "provider_id"
     t.index ["neighborhood_id"], name: "index_centers_on_neighborhood_id", using: :btree
     t.index ["provider_id"], name: "index_centers_on_provider_id", using: :btree
+  end
+
+  create_table "child_family_guardian_providers", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "family_id"
+    t.integer  "guardian_id"
+    t.integer  "provider_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["child_id"], name: "index_child_family_guardian_providers_on_child_id", using: :btree
+    t.index ["family_id"], name: "index_child_family_guardian_providers_on_family_id", using: :btree
+    t.index ["guardian_id"], name: "index_child_family_guardian_providers_on_guardian_id", using: :btree
+    t.index ["provider_id"], name: "index_child_family_guardian_providers_on_provider_id", using: :btree
   end
 
   create_table "children", force: :cascade do |t|
@@ -154,8 +176,14 @@ ActiveRecord::Schema.define(version: 20161121193958) do
     t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "center_children", "centers"
+  add_foreign_key "center_children", "children"
   add_foreign_key "centers", "neighborhoods"
   add_foreign_key "centers", "providers"
+  add_foreign_key "child_family_guardian_providers", "children"
+  add_foreign_key "child_family_guardian_providers", "families"
+  add_foreign_key "child_family_guardian_providers", "guardians"
+  add_foreign_key "child_family_guardian_providers", "providers"
   add_foreign_key "children", "centers"
   add_foreign_key "families", "centers"
   add_foreign_key "form_field_instances", "form_fields"

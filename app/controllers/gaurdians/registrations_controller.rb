@@ -1,16 +1,23 @@
 class Guardians::RegistrationsController < Devise::RegistrationsController
+include ApplicationHelper
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+before_action :configure_permitted_parameters, if: :devise_controller?
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+
+    @neighborhood_options = Neighborhood.all.collect {|n| [ n.name, n.id ] }
+    @guardian = build_resource()
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    build_resource(configure_permitted_parameters)
+
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -36,22 +43,27 @@ class Guardians::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up) do |provider_params|
+      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update) do |provider_params|
+      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
+    end
+  end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    guardian_path(resource)
+    super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

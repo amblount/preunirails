@@ -1,0 +1,1 @@
+json.partial! "center_children/center_child", center_child: @center_child
