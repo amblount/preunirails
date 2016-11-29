@@ -258,6 +258,13 @@ Guardian.create(
 		password: "123456"
 		)
 
+ChildFamilyGuardianProvider.create(
+	child_id: 1,
+	family_id: 1,
+	guardian_id: 1,
+	provider_id: 1
+	)
+
 
 Neighborhood.create(neighborhoods)
 Center.create(centers)

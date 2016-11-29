@@ -8,9 +8,11 @@
 			<li><strong>Maximum Student Enrollment:</strong> <%= @center.capacity %></li>
 			<li><%= link_to "website", @center.website %></li>	
 		</ul>
-
-		
-
+			<h5>Children</h5>
+			<p>Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
+			<%= @cfgp.child.last_name %><br>
+			DOB: <%= @cfgp.child.date_of_birth %><br>
+			Center Name: <%= @center.name %><p>
 </div>
 
 

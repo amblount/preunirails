@@ -10,6 +10,7 @@ class ChildrenController < ApplicationController
   # GET /children/1
   # GET /children/1.json
   def show
+    @center = Center.first
   end
 
   # GET /children/new

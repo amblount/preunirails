@@ -7,5 +7,4 @@ class Provider < ApplicationRecord
   has_many :children, :through => :child_family_guardian_providers
   has_many :guardians, :through => :child_family_guardian_providers
   has_many :families, :through => :child_family_guardian_providers
-  has_many :centers
 end
