@@ -14,7 +14,7 @@
 			<div class="container">
 			<h6>Children</h6>
 			Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
-			<%= @cfgp.child.last_name %><br>
+			<%= link_to @cfgp.child.last_name, forms_path %><br>
 			DOB: <%= @cfgp.child.date_of_birth %><br>
 			Center Name: <%= @center.name %><br>
 
