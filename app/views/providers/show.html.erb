@@ -1,5 +1,7 @@
 <div class="container">
-	<h6>Welcome <%= @provider.name %></h6>
+	<h6>Welcome <%= @provider.name %></h6><br><br>
+
+	<h6>Your Center</h6>
 	<h5><%= link_to @center.name, center_path(@center.id) %></h5>
 		<ul>	
 			<li><strong>Phone:</strong> <%= @center.phone %></li>
@@ -8,19 +10,23 @@
 			<li><strong>Maximum Student Enrollment:</strong> <%= @center.capacity %></li>
 			<li><%= link_to "website", @center.website %></li>	
 		</ul>
-			<h5>Children</h5>
+
+			<div class="container">
+			<h6>Children</h6>
 			Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
 			<%= @cfgp.child.last_name %><br>
 			DOB: <%= @cfgp.child.date_of_birth %><br>
 			Center Name: <%= @center.name %><br>
+
 			
-			<h5>Guardians</h5>
 			<ul>
-				<li><%= link_to @guardian.name, guardian_path(@guardian.id) %></li>
-				<li><%= @guardian.email %></li>
-				<li><%= @guardian.phone %></li>
-				<li><%= @guardian.full_address %></li>
+				<h6>Guardians</h6>
+				<li>Name: <%= link_to @guardian.name, guardian_path(@guardian.id) %></li>
+				<li>Email: <%= @guardian.email %></li>
+				<li>Phone: <%= @guardian.phone %></li>
+				<li>Address: <%= @guardian.full_address %></li>
 			</ul>
+			</div>
 </div>
 
 
