@@ -1,0 +1,32 @@
+<%= render "partials/nav" %>
+<div class="container" id="home">
+<div class="container">
+	<div class="row">
+		<h3>Select Your User Type</h3>
+		<div class="col s6">
+			<div class="container">
+				<div class="row">
+					<i class="large material-icons col s12">perm_identity</i>
+					<span class="col 12"><%= link_to "Guardian", new_guardian_registration_path %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col s6">
+			<div class="container">
+				<div class="row">
+				 	<i class="large material-icons col s12">recent_actors</i> 
+					<span class="col 12"><%= link_to "Provider", new_provider_registration_path %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container" id="user-type">
+	<p>Please select guardian if you are a parent of a student wishing to enroll in care</p>
+	<p>Please select provider if you are the admin or owner of a center providing care</p>
+</div>
+
+</div>
+
+ 
+ 

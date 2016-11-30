@@ -1,0 +1,26 @@
+<ul id='dropdown1' class='dropdown-content'>
+
+  <% unless provider_signed_in?%>
+    <li><a href="#!"><%= link_to "Sign Up", new_provider_registration_path %></a></li>
+    <li><a href="#!"><%= link_to "Sign In", new_provider_session_path %></a></li>
+  <% end %>
+
+  <% if provider_signed_in? %>
+    Hi <%= current_provider.name %>
+    <li><a href="#!"><%= link_to "Profile", provider_path(current_provider) %></a></li>
+    <li><a href="#!"><%= link_to "sign out",  destroy_provider_session_path, method: :delete %></a></li>
+  <% end %>
+
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">PreUni</a>
+    <ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>  
+  </div>
+</nav> 
+
+ 
+        

@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :center_children
-  resources :child_family_guardian_providers
-  resources :children
-  root "centers#index"
+  root to: 'welcome#home'
+
+  
   
   devise_for :guardians, controllers: {
-    sessions: 'guardians/sessions', registrations: 'guardians/registrations'
+    sessions: 'guardians/sessions', :registrations => "guardians/registrations"
   }
   devise_for :providers, controllers: {
-    sessions: 'providers/sessions', registrations: 'providers/registrations'
+    sessions: 'providers/sessions', :registrations => "providers/registrations"
   }
 
   devise_scope :provider do
@@ -19,6 +18,11 @@ Rails.application.routes.draw do
   devise_scope :guardian do
     get '/signout', to: 'devise/sessions#destroy', as: :"guardian/signout"
   end
+
+  resources :center_children
+  resources :child_family_guardian_providers
+  resources :children
+
   resources :guardians
 
   resources :centers
