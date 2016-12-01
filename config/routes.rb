@@ -2,9 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  
-  
-  devise_for :guardians, controllers: {
+  devise_for :guardians, 
+  controllers: {
     sessions: 'guardians/sessions', :registrations => "guardians/registrations"
   }
   devise_for :providers, controllers: {

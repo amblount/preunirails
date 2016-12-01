@@ -6,7 +6,6 @@ include GuardiansHelper
 
   # GET /resource/sign_up
   def new
-    @center_options = Center.all.collect {|c| [ c.name, c.id ] }
     @neighborhood_options = Neighborhood.all.collect {|n| [ n.name, n.id ] }
     @guardian = build_resource()
     super
