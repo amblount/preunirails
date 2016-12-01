@@ -1,5 +1,5 @@
 class Guardians::RegistrationsController < Devise::RegistrationsController
-include ApplicationHelper
+include GuardiansHelper
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 # before_action :configure_permitted_parameters, if: :devise_controller?
@@ -47,15 +47,15 @@ include ApplicationHelper
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up) do |provider_params|
-      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
+    devise_parameter_sanitizer.permit(:sign_up) do |guardian_params|
+      guardian_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
     end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update) do |provider_params|
-      provider_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
+    devise_parameter_sanitizer.permit(:account_update) do |guardian_params|
+      guardian_params.permit(:email, :name, :phone, :full_address, :city, :state, :zipcode, :center_id, :neighborhood_id, :password, :password_confirmation)
     end
   end
 
