@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129010443) do
+ActiveRecord::Schema.define(version: 20161201224114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "center_children", force: :cascade do |t|
-    t.integer  "child_id"
-    t.integer  "center_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["center_id"], name: "index_center_children_on_center_id", using: :btree
-    t.index ["child_id"], name: "index_center_children_on_child_id", using: :btree
-  end
 
   create_table "centers", force: :cascade do |t|
     t.string   "name"
@@ -46,35 +37,34 @@ ActiveRecord::Schema.define(version: 20161129010443) do
     t.index ["provider_id"], name: "index_centers_on_provider_id", using: :btree
   end
 
-  create_table "child_family_guardian_providers", force: :cascade do |t|
-    t.integer  "child_id"
-    t.integer  "family_id"
-    t.integer  "guardian_id"
-    t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["child_id"], name: "index_child_family_guardian_providers_on_child_id", using: :btree
-    t.index ["family_id"], name: "index_child_family_guardian_providers_on_family_id", using: :btree
-    t.index ["guardian_id"], name: "index_child_family_guardian_providers_on_guardian_id", using: :btree
-    t.index ["provider_id"], name: "index_child_family_guardian_providers_on_provider_id", using: :btree
-  end
-
   create_table "children", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "date_of_birth"
-    t.integer  "center_id"
+    t.date     "date_of_birth"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["center_id"], name: "index_children_on_center_id", using: :btree
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.integer  "center_id"
+    t.string   "name"
+    t.integer  "total_seats"
+    t.integer  "enrolled_students"
+    t.integer  "available_slots"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["center_id"], name: "index_classrooms_on_center_id", using: :btree
   end
 
   create_table "families", force: :cascade do |t|
-    t.string   "last_name"
-    t.integer  "center_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["center_id"], name: "index_families_on_center_id", using: :btree
+    t.integer  "child_id"
+    t.integer  "guardian_id"
+    t.integer  "relationship_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["child_id"], name: "index_families_on_child_id", using: :btree
+    t.index ["guardian_id"], name: "index_families_on_guardian_id", using: :btree
+    t.index ["relationship_id"], name: "index_families_on_relationship_id", using: :btree
   end
 
   create_table "form_field_instances", force: :cascade do |t|
@@ -139,6 +129,15 @@ ActiveRecord::Schema.define(version: 20161129010443) do
     t.index ["reset_password_token"], name: "index_guardians_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "instructors", force: :cascade do |t|
+    t.integer  "center_id"
+    t.integer  "classroom_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["center_id"], name: "index_instructors_on_center_id", using: :btree
+    t.index ["classroom_id"], name: "index_instructors_on_classroom_id", using: :btree
+  end
+
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -169,26 +168,38 @@ ActiveRecord::Schema.define(version: 20161129010443) do
     t.integer  "neighborhood_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "center_id"
-    t.index ["center_id"], name: "index_providers_on_center_id", using: :btree
     t.index ["email"], name: "index_providers_on_email", unique: true, using: :btree
     t.index ["neighborhood_id"], name: "index_providers_on_neighborhood_id", using: :btree
     t.index ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "center_children", "centers"
-  add_foreign_key "center_children", "children"
+  create_table "relationships", force: :cascade do |t|
+    t.string   "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer  "center_id"
+    t.integer  "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_students_on_center_id", using: :btree
+    t.index ["child_id"], name: "index_students_on_child_id", using: :btree
+  end
+
   add_foreign_key "centers", "neighborhoods"
   add_foreign_key "centers", "providers"
-  add_foreign_key "child_family_guardian_providers", "children"
-  add_foreign_key "child_family_guardian_providers", "families"
-  add_foreign_key "child_family_guardian_providers", "guardians"
-  add_foreign_key "child_family_guardian_providers", "providers"
-  add_foreign_key "children", "centers"
-  add_foreign_key "families", "centers"
+  add_foreign_key "classrooms", "centers"
+  add_foreign_key "families", "children"
+  add_foreign_key "families", "guardians"
+  add_foreign_key "families", "relationships"
   add_foreign_key "form_field_instances", "form_fields"
   add_foreign_key "form_field_instances", "form_instances"
   add_foreign_key "form_fields", "forms"
   add_foreign_key "form_instances", "forms"
-  add_foreign_key "providers", "centers"
+  add_foreign_key "instructors", "centers"
+  add_foreign_key "instructors", "classrooms"
+  add_foreign_key "students", "centers"
+  add_foreign_key "students", "children"
 end

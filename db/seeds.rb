@@ -1,7 +1,10 @@
 Center.destroy_all
 Form.destroy_all
+Provider.destroy.all
+
 centers = [
 	{
+		provider_id: provider.id,
 		name: "Academia de Mi Abuela",
 		capacity: 28,
 		neighborhood_id: 1,
@@ -17,6 +20,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Beatie Street Preschool",
 		capacity: 15,
 		neighborhood_id: 1,
@@ -32,6 +36,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Bernice and Joe's Playschool",
 		capacity: 26,
 		neighborhood_id: 1, 
@@ -47,6 +52,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Betty's Children's Academy",
 		capacity: 32,
 		neighborhood_id: 1, 
@@ -62,6 +68,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "BlueSkies for Children",
 		capacity: 92,
 		neighborhood_id: 1,
@@ -77,6 +84,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Bright Future Early Learning Center",
 		capacity: 32,
 		neighborhood_id: 1, 
@@ -92,6 +100,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Broadway Children's School",
 		capacity: 42,
 		neighborhood_id: 1, 
@@ -107,6 +116,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Chatham School Redwood",
 		capacity: 111,
 		neighborhood_id: 1, 
@@ -122,6 +132,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Claremont Day Nursery on College Ave.",
 		capacity: 34,
 		neighborhood_id: 1, 
@@ -137,6 +148,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Color Me Children Oakland",
 		capacity: 62,
 		neighborhood_id: 1, 
@@ -152,6 +164,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Cultivating Kids Infants",
 		capacity: 30,
 		neighborhood_id: 1, 
@@ -167,6 +180,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "Daisy Child Development Center",
 		capacity: 71,
 		neighborhood_id: 1, 
@@ -182,6 +196,7 @@ centers = [
 
 	},
 	{
+		provider_id: provider.id,
 		name: "De Colores Head Start",
 		capacity: 118,
 		neighborhood_id: 1, 
@@ -198,6 +213,21 @@ centers = [
 	}
 ]
 
+relationships = [
+	{kind: "mother"},
+	{kind: "father"},
+	{kind: "grandmother"},
+	{kind: "grandfather"},
+	{kind: "uncle"},
+	{kind: "aunt"},
+	{kind: "nanny"},
+	{kind: "step mother"},
+	{kind: "step father"},
+	{kind: "other"}
+]
+
+Relationship.create(relationships)
+
 neighborhoods = [
   {name: "Montclair"},	
   {name: "Lake Merritt Park"},
@@ -212,27 +242,65 @@ neighborhoods = [
   {name: "Fruitvale"}
 ]
 
-Child.create(
-	first_name: "Carla",
-	last_name: "Johnson",
-	date_of_birth: "02-02-2012",
-	center_id: 1
+Neighborhood.create(neighborhoods)
+Center.create(centers)
+
+Classroom.create(
+	center_id: 1,
+	name: "Casa Lila",
+	total_seats: 9
 	)
-Child.create(
-	first_name: "Ben",
-	last_name: "Johnson",
-	date_of_birth: "02-02-2013",
-	center_id: 1
+Classroom.create(
+	center_id: 1,
+	name: "Casa Lima",
+	total_seats: 9
 	)
-Child.create(
-	first_name: "Keith",
-	last_name: "Johnson",
-	date_of_birth: "02-02-2014",
-	center_id: 1
+Classroom.create(
+	center_id: 1,
+	name: "Casa Celeste",
+	total_seats: 9
 	)
 
-Provider.create(
+instructors = [
+	{
 		center_id: 1,
+		classroom_id: 3,
+		name: "Yaneldis Diaz Pedroso"
+	},
+	{
+		center_id: 1,
+		classroom_id: 3,
+		name: "Lani Rodarte"
+	},
+	{
+		center_id: 1,
+		classroom_id: 2,
+		name: "Valeria Espinoza"
+	},
+	{
+		center_id: 1,
+		classroom_id: 1,
+		name: "Xochitl Juarez"
+	},
+	{
+		center_id: 1,
+		classroom_id: 2,
+		name: "Gladys Corro"
+	},
+	{
+		center_id: 1,
+		classroom_id: 2,
+		name: "Marisol Jiménez"
+	},
+	{
+		center_id: 1,
+		classroom_id: 2,
+		name: "Laura Soto"
+	}
+]
+Instructor.create(instructors)
+
+provider = Provider.create(
 		name: "Cynthia",
 		full_address: "1234 cannon street, Oakland, CA 94606",
 		address: "1234 cannon street",
@@ -244,6 +312,37 @@ Provider.create(
 		phone: "162-283-2938",
 		password: "123456"
 )
+
+
+Child.create(
+	first_name: "Carla",
+	last_name: "Johnson",
+	date_of_birth: Date.new,
+	)
+Child.create(
+	first_name: "Ben",
+	last_name: "Johnson",
+	date_of_birth: Date.new,
+	)
+Child.create(
+	first_name: "Keith",
+	last_name: "Johnson",
+	date_of_birth: Date.new,
+	)
+
+Student.create(
+	center_id: 1,
+	child_id: 1
+	)
+Student.create(
+	center_id: 1,
+	child_id: 2
+	)
+Student.create(
+	center_id: 1,
+	child_id: 3
+	)
+
 
 Guardian.create(
 		name: "Reinmann",
@@ -258,16 +357,13 @@ Guardian.create(
 		password: "123456"
 		)
 
-ChildFamilyGuardianProvider.create(
+Family.create(
 	child_id: 1,
-	family_id: 1,
 	guardian_id: 1,
-	provider_id: 1
+	relationship_id: 1
 	)
 
 
-Neighborhood.create(neighborhoods)
-Center.create(centers)
 Form.create(name: "Enrollment Agreement")
 Form.create(name: "Identification and Student Emergency Form")
 Form.create(name: "Parents Rights Form A")
