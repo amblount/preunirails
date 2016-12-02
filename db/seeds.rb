@@ -1,6 +1,43 @@
+Family.destroy_all
+Relationship.destroy_all
 Center.destroy_all
 Form.destroy_all
-Provider.destroy.all
+Provider.destroy_all
+Neighborhood.destroy_all
+Classroom.destroy_all
+Student.destroy_all
+Instructor.destroy_all
+Child.destroy_all
+Guardian.destroy_all
+
+provider = Provider.create(
+		name: "Cynthia",
+		full_address: "1234 cannon street, Oakland, CA 94606",
+		address: "1234 cannon street",
+		city: "Oakland",
+		state: "CA",
+		neighborhood_id: 1,
+		zipcode: 94606,
+		email: "creinmann@gmail.com",
+		phone: "162-283-2938",
+		password: "123456"
+		)
+
+neighborhoods = [
+  {name: "Montclair"},	
+  {name: "Lake Merritt Park"},
+  {name: "Piedmont"},
+  {name: "Upper Laurel"},
+  {name: "Glenview"},
+  {name: "Adams Point"},
+  {name: "Rockridge"},
+  {name: "Temescal"},
+  {name: "Uptown"},
+  {name: "Produce and Waterfront"},
+  {name: "Fruitvale"}
+]
+
+Neighborhood.create(neighborhoods)
 
 centers = [
 	{
@@ -213,6 +250,8 @@ centers = [
 	}
 ]
 
+Center.create(centers)
+
 relationships = [
 	{kind: "mother"},
 	{kind: "father"},
@@ -227,23 +266,6 @@ relationships = [
 ]
 
 Relationship.create(relationships)
-
-neighborhoods = [
-  {name: "Montclair"},	
-  {name: "Lake Merritt Park"},
-  {name: "Piedmont"},
-  {name: "Upper Laurel"},
-  {name: "Glenview"},
-  {name: "Adams Point"},
-  {name: "Rockridge"},
-  {name: "Temescal"},
-  {name: "Uptown"},
-  {name: "Produce and Waterfront"},
-  {name: "Fruitvale"}
-]
-
-Neighborhood.create(neighborhoods)
-Center.create(centers)
 
 Classroom.create(
 	center_id: 1,
@@ -300,20 +322,6 @@ instructors = [
 ]
 Instructor.create(instructors)
 
-provider = Provider.create(
-		name: "Cynthia",
-		full_address: "1234 cannon street, Oakland, CA 94606",
-		address: "1234 cannon street",
-		city: "Oakland",
-		state: "CA",
-		neighborhood_id: 1,
-		zipcode: 94606,
-		email: "creinmann@gmail.com",
-		phone: "162-283-2938",
-		password: "123456"
-)
-
-
 Child.create(
 	first_name: "Carla",
 	last_name: "Johnson",
@@ -356,10 +364,27 @@ Guardian.create(
 		phone: "163-283-2938",
 		password: "123456"
 		)
+Guardian.create(
+		name: "Josephine",
+		full_address: "1234 cannon street, Oakland, CA 94606",
+		address: "1234 cannon street",
+		city: "Oakland",
+		state: "CA",
+		zipcode: 94606,
+		neighborhood_id: 1,
+		email: "jreinmann@gmail.com",
+		phone: "163-283-2938",
+		password: "123456"
+		)
 
 Family.create(
 	child_id: 1,
 	guardian_id: 1,
+	relationship_id: 2
+	)
+Family.create(
+	child_id: 1,
+	guardian_id: 2,
 	relationship_id: 1
 	)
 

@@ -1,5 +1,5 @@
 class Neighborhood < ApplicationRecord
-	has_many :gaurdians
-	has_many :providers
+	# belongs_to :gaurdian
+	# belongs_to :provider
 	has_many :centers
 end
