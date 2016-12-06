@@ -7,13 +7,14 @@ include GuardiansHelper
   # GET /resource/sign_up
   def new
     @neighborhood_options = Neighborhood.all.collect {|n| [ n.name, n.id ] }
-    @guardian = build_resource()
+    @guardian = build_resource(params[:guardian])
     super
   end
 
   # POST /resource
   def create
-    build_resource(configure_sign_up_params)
+    build_resource(@guardian)
+    # redirect_to guardian_path(current_guardian.id)
 
     super
   end
