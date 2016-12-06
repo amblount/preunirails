@@ -37,7 +37,9 @@
 
 4. Sprint 3
 
-	- User can 
+	- User can select which type of user they are Guardian or Provider
+	- Guardian can create an account or log into account
+	- Guardian can update account information
 	
 5. Sprint 4
 
