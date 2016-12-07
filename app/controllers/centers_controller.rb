@@ -1,6 +1,7 @@
 class CentersController < ApplicationController
   def index
   	@centers = Center.all
+  	render "home"
   end
 
   def show
