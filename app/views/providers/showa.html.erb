@@ -1,0 +1,33 @@
+<div class="container">
+	<h6>Welcome <%= @provider.name %></h6><br><br>
+
+	<h6>Your Center</h6>
+	<h5><%= link_to @center.name, center_path(@center.id) %></h5>
+		<ul>	
+			<li><strong>Phone:</strong> <%= @center.phone %></li>
+			<li><strong>Email:</strong> <%= @center.email %></li>
+			<li><strong>Address:</strong> <%= @center.full_address %></li>
+			<li><strong>Maximum Student Enrollment:</strong> <%= @center.capacity %></li>
+			<li><%= link_to "website", @center.website %></li>	
+		</ul>
+
+			<div class="container">
+			<h6>Children</h6>
+			Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
+			<%= link_to @cfgp.child.last_name, forms_path %><br>
+			DOB: <%= @cfgp.child.date_of_birth %><br>
+			Center Name: <%= @center.name %><br>
+
+			
+			<ul>
+				<h6>Guardians</h6>
+				<li>Name: <%= link_to @guardian.name, guardian_path(@guardian.id) %></li>
+				<li>Email: <%= @guardian.email %></li>
+				<li>Phone: <%= @guardian.phone %></li>
+				<li>Address: <%= @guardian.full_address %></li>
+			</ul>
+			</div>
+</div>
+
+
+

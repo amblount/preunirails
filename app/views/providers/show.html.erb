@@ -1,33 +1,229 @@
-<div class="container">
-	<h6>Welcome <%= @provider.name %></h6><br><br>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Provider#show</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/stylesheets/main2.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="subpage">
+		<div id="page-wrapper">
 
-	<h6>Your Center</h6>
-	<h5><%= link_to @center.name, center_path(@center.id) %></h5>
-		<ul>	
-			<li><strong>Phone:</strong> <%= @center.phone %></li>
-			<li><strong>Email:</strong> <%= @center.email %></li>
-			<li><strong>Address:</strong> <%= @center.full_address %></li>
-			<li><strong>Maximum Student Enrollment:</strong> <%= @center.capacity %></li>
-			<li><%= link_to "website", @center.website %></li>	
-		</ul>
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="">
+						<div class="row">
+							<div class="12u">
 
-			<div class="container">
-			<h6>Children</h6>
-			Name: <%= link_to @cfgp.child.first_name, child_path(@cfgp.child.id) %> 
-			<%= link_to @cfgp.child.last_name, forms_path %><br>
-			DOB: <%= @cfgp.child.date_of_birth %><br>
-			Center Name: <%= @center.name %><br>
+								<!-- Logo -->
+									<h1><a href="#" id="logo">Welcome <%= @provider.name %></a></h1>
 
-			
-			<ul>
-				<h6>Guardians</h6>
-				<li>Name: <%= link_to @guardian.name, guardian_path(@guardian.id) %></li>
-				<li>Email: <%= @guardian.email %></li>
-				<li>Phone: <%= @guardian.phone %></li>
-				<li>Address: <%= @guardian.full_address %></li>
-			</ul>
-			</div>
-</div>
+								<!-- Nav -->
+									<!-- <nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="threecolumn.html">Three Column</a>
+										<a href="twocolumn1.html">Two Column #1</a>
+										<a href="twocolumn2.html">Two Column #2</a>
+										<a href="onecolumn.html">One Column</a>
+									</nav> -->
 
+							</div>
+						</div>
+					</header>
+				</div>
 
+			<!-- Content -->
+				<div id="content-wrapper">
+					<div id="content">
+						<div class="">
+							<div class="row">
+								<div class="col m3">
 
+									<!-- Left Sidebar -->
+										<section>
+											<header>
+												<h2>Items to Complete</h2>
+											</header>
+											<p>
+												Ordered by most important
+											</p>
+											<ol class="link-list">
+												<li><a href="#">Sed dolore viverra</a></li>
+												<li><a href="#">Ligula non varius</a></li>
+												<li><a href="#">Dis parturient montes</a></li>
+												<li><a href="#">Nascetur ridiculus</a></li>
+											</ol>
+										</section>
+										<section>
+											<header>
+												<h2>Interested Students</h2>
+											</header>
+											<ul class="link-list">
+												<li><a href="#">Sed dolore viverra</a></li>
+												<li><a href="#">Ligula non varius</a></li>
+												<li><a href="#">Nec sociis natoque</a></li>
+												<li><a href="#">Penatibus et magnis</a></li>
+												<li><a href="#">Dis parturient montes</a></li>
+												<li><a href="#">Nascetur ridiculus</a></li>
+											</ul>
+										</section>
+								</div>
+								<div class="col m6 important(mobile)">
+
+									<!-- Main Content -->
+										<section>
+											<header>
+												<h2>Your Neighborhood</h2>
+												<h3>Montclair</h3>
+											</header>
+											<p>
+												<iframe
+												  width="275"
+												  height="150"
+												  frameborder="0" style="border:0"
+												  src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_MAPS_KEY"] %>&q=Space+Needle,Seattle+WA">
+												</iframe>
+											</p>
+									
+												Upcoming Events
+											<ol>
+												<li>one</li>
+												<li>two</li>
+												<li>three</li>
+												<li>four</li>
+												<li>five</li>
+											</ol>
+											
+											<p>
+												Mauris sit amet tellus urna. In facilisis, tortor vitae ultricies egestas, odio
+												mi rhoncus arcu, quis euismod felis felis et velit. Mauris varius consectetur erat
+												egestas tempus. Cras convallis odio sit amet risus convallis porttitor. Integer
+												vehicula fermentum ligula at pretium. Suspendisse semper iaculis eros, eu aliquam
+												justo imperdiet vel. Proin nec dictum mi. Duis commodo enim non tellus interdum
+												iaculis. Phasellus ultrices diam sit amet orci lacinia sed consequat dui auctor.
+											</p>
+										</section>
+
+								</div>
+								<div class="col m3">
+
+									<!-- Right Sidebar -->
+										<section>
+											<header>
+												<h2>Classrooms</h2>
+											</header>
+											<ul class="link-list">
+												<li><a href="#">Sed dolore viverra</a></li>
+												<li><a href="#">Ligula non varius</a></li>
+												<li><a href="#">Nec sociis natoque</a></li>
+												<li><a href="#">Penatibus et magnis</a></li>
+												<li><a href="#">Dis parturient montes</a></li>
+												<li><a href="#">Nascetur ridiculus</a></li>
+											</ul>
+										</section>
+										<section>
+											<header>
+												<h2>Students</h2>
+											</header>
+											<p>
+												Here are a few centers located near your home.
+											</p>
+											<ul class="link-list">
+												<li><a href="#">Sed dolore viverra</a></li>
+												<li><a href="#">Ligula non varius</a></li>
+												<li><a href="#">Dis parturient montes</a></li>
+												<li><a href="#">Nascetur ridiculus</a></li>
+											</ul>
+										</section>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="">
+						<div class="row">
+							<div class="8u 12u(mobile)">
+
+								<!-- Links -->
+									<section>
+										<h2>Links to Important Stuff</h2>
+										<div>
+											<div class="row">
+												<div class="3u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="#">Neque amet dapibus</a></li>
+														<li><a href="#">Sed mattis quis rutrum</a></li>
+														<li><a href="#">Accumsan suspendisse</a></li>
+														<li><a href="#">Eu varius vitae magna</a></li>
+													</ul>
+												</div>
+												<div class="3u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="#">Neque amet dapibus</a></li>
+														<li><a href="#">Sed mattis quis rutrum</a></li>
+														<li><a href="#">Accumsan suspendisse</a></li>
+														<li><a href="#">Eu varius vitae magna</a></li>
+													</ul>
+												</div>
+												<div class="3u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="#">Neque amet dapibus</a></li>
+														<li><a href="#">Sed mattis quis rutrum</a></li>
+														<li><a href="#">Accumsan suspendisse</a></li>
+														<li><a href="#">Eu varius vitae magna</a></li>
+													</ul>
+												</div>
+												<div class="3u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="#">Neque amet dapibus</a></li>
+														<li><a href="#">Sed mattis quis rutrum</a></li>
+														<li><a href="#">Accumsan suspendisse</a></li>
+														<li><a href="#">Eu varius vitae magna</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- Blurb -->
+									<section>
+										<h2>An Informative Text Blurb</h2>
+										<p>
+											Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. Suspendisse eu
+											varius nibh. Suspendisse vitae magna eget odio amet mollis. Duis neque nisi,
+											dapibus sed mattis quis, sed rutrum accumsan sed. Suspendisse eu varius nibh
+											lorem ipsum amet dolor sit amet lorem ipsum consequat gravida justo mollis.
+										</p>
+									</section>
+
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			<!-- Copyright -->
+				<div id="copyright">
+					&copy; PreUni. All rights reserved. | 2016
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src= Rails.root + "assets/js/jquery.min.js"></script>
+			<script src= Rails.root + "assets/js/skel.min.js"></script>
+			<script src= Rails.root + "assets/js/skel-viewport.min.js"></script>
+			<script src= Rails.root + "assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src= Rails.root + "assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src= Rails.root + "assets/js/main.js"></script>
+
+	</body>
+</html>
