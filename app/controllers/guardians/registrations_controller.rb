@@ -14,8 +14,6 @@ include GuardiansHelper
   # POST /resource
   def create
     build_resource(@guardian)
-    # redirect_to guardian_path(current_guardian.id)
-
     super
   end
 
@@ -62,11 +60,12 @@ include GuardiansHelper
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     guardian_path(resource)
-    super(resource)
+    # super
   end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    guardian_path(resource)
+    # super(resource)
+  end
 end
