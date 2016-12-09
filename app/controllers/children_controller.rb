@@ -16,6 +16,8 @@ class ChildrenController < ApplicationController
   # GET /children/new
   def new
     @child = Child.new
+    @relationship_options = Relationship.all.collect {|r| [ r.kind, r.id ] }
+    @family = Family.new
   end
 
   # GET /children/1/edit
@@ -26,6 +28,7 @@ class ChildrenController < ApplicationController
   # POST /children.json
   def create
     @child = Child.new(child_params)
+    @family = Family.new(family_params)
 
     respond_to do |format|
       if @child.save
@@ -71,6 +74,10 @@ class ChildrenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def child_params
-      params.require(:child).permit(:first_name, :last_name, :date_of_birth, :center_id)
+      params.require(:child).permit(:first_name, :last_name, :date_of_birth)
+    end
+
+    def family_params
+      params.require(:family).permit(:relationship_id, :guardian_id, :child_id)
     end
 end

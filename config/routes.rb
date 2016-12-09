@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     get '/signout', to: 'devise/sessions#destroy', as: :"guardian/signout"
   end
 
-  resources :center_children
-  resources :child_family_guardian_providers
   resources :children
 
   resources :guardians do

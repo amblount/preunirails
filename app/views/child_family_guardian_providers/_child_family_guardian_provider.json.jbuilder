@@ -1,2 +1,0 @@
-json.extract! child_family_guardian_provider, :id, :child_id, :family_id, :guardian_id, :provider_id, :created_at, :updated_at
-json.url child_family_guardian_provider_url(child_family_guardian_provider, format: :json)
