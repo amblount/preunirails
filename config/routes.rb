@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
-  devise_for :guardians, 
+  devise_for :guardians,
   controllers: {
     sessions: 'guardians/sessions', :registrations => "guardians/registrations"
   }
@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :child_family_guardian_providers
   resources :children
 
-  resources :guardians
+  resources :guardians do
+    resources :children
+  end
 
   resources :centers
 

@@ -4,9 +4,7 @@
 		<title>Guardian#show</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="../../assets/stylesheets/main2.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -18,7 +16,7 @@
 							<div class="12u">
 
 								<!-- Logo -->
-									<h1><a href="#" id="logo">Guardian#Show</a></h1>
+									<h1><a href="#" id="logo">Welcome, <%= @guardian.email%></a></h1>
 
 								<!-- Nav -->
 									<!-- <nav id="nav">
@@ -122,6 +120,7 @@
 												<li><a href="#">Penatibus et magnis</a></li>
 												<li><a href="#">Dis parturient montes</a></li>
 												<li><a href="#">Nascetur ridiculus</a></li>
+												<li><%= link_to "Add Child", new_guardian_child_path(@guardian), class: "waves-effect waves-light btn"%>
 											</ul>
 										</section>
 										<section>
@@ -136,6 +135,7 @@
 												<li><a href="#">Ligula non varius</a></li>
 												<li><a href="#">Dis parturient montes</a></li>
 												<li><a href="#">Nascetur ridiculus</a></li>
+												<li><%= link_to "All Centers", centers_path, class: "waves-effect waves-light btn"%>
 											</ul>
 										</section>
 
@@ -223,7 +223,6 @@
 			<script src= Rails.root + "assets/js/skel.min.js"></script>
 			<script src= Rails.root + "assets/js/skel-viewport.min.js"></script>
 			<script src= Rails.root + "assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src= Rails.root + "assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src= Rails.root + "assets/js/main.js"></script>
 
 	</body>

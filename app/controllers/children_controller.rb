@@ -29,7 +29,8 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.save
-        format.html { redirect_to @child, notice: 'Child was successfully created.' }
+        @guardian = Guardian.find(params["child"][:guardian_id])
+        format.html { redirect_to @guardian, notice: 'Child was successfully created.' }
         format.json { render :show, status: :created, location: @child }
       else
         format.html { render :new }

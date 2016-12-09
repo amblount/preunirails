@@ -3,7 +3,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :date_of_birth %>
-    <%= f.input :center %>
+    <%= f.hidden_field :guardian_id, :value => params[:guardian_id] %>
   <% end %>
 
   <%= f.actions do %>
