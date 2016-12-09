@@ -28,13 +28,17 @@ class ChildrenController < ApplicationController
   # POST /children.json
   def create
     @child = Child.new(child_params)
-    @family = Family.new(family_params)
+    @family = Family.create(
+                            guardian_id: params["child"]["family"][:guardian_id],
+                            child_id: params["child"]["family"][:child_id],
+                            relationship_id: params["child"]["family"][:relationship_id]
+                            )
+    @guardian = Guardian.find(params["child"]["family"][:guardian_id])
 
     respond_to do |format|
       if @child.save
-        @guardian = Guardian.find(params["child"][:guardian_id])
         format.html { redirect_to @guardian, notice: 'Child was successfully created.' }
-        format.json { render :show, status: :created, location: @child }
+        format.json { render :show, status: :created, location: @guardian }
       else
         format.html { render :new }
         format.json { render json: @child.errors, status: :unprocessable_entity }

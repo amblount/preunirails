@@ -1,13 +1,14 @@
-<%= form_for [:guardian, @child, @family] do |f| %>
-  <%= f.fields_for :families do |family| %>
-    <%= family.hidden_field :guardian_id, :value => params[:guardian_id] %><br>
-    <%= family.hidden_field :child_id, :value => @child.id %>
-    <%= family.select(:relationship_id, @relationship_options) %>
-  <% end %>
+<%= semantic_form_for @child do |f| %>
   <%= f.inputs do %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.date_field :date_of_birth %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :date_of_birth %>
+    <%= f.fields_for @family do |family| %>
+      <%= family.hidden_field :guardian_id, :value => params[:guardian_id] %><br>
+      <%= family.hidden_field :child_id, :value => @child.id %>
+      <%= family.label "Your relationship"%>
+      <%= family.select(:relationship_id, @relationship_options) %><br>
+    <% end %>
   <% end %>
 
   <%= f.actions do %>
