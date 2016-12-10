@@ -1,6 +1,9 @@
 # Pre Uni
 A form submission tool for Parents to register their students in Preschool.
 
+# Important
+This project is a part of the PreUni organization and under trademark protection. This repo will be public for 24 hours, but please do not clone or fork the repository without permission from the owner.
+
 # Walkthrough
 ![](https://github.com/amblount/preunirails/blob/master/public/PreUni.gif)
 
@@ -36,8 +39,10 @@ Product Management
 [](https://docs.google.com/presentation/d/1FBdwonbgkiIN_ywfEO-F2bEglKLC_Yj7IRpijFxeNtQ/edit?usp=sharing)
 
 # Deployment Links
+
 [AWS]()
-[Heroku]()
+
+[Heroku](https://blooming-oasis-21163.herokuapp.com/)
 
 Login Guardian
 
