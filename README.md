@@ -35,6 +35,9 @@ Product Management
 ![](https://github.com/amblount/preunirails/blob/master/public/images/schema.png)
 ![](https://github.com/amblount/preunirails/blob/master/public/wireframes/Screen%20Shot%202016-12-01%20at%202.30.58%20PM.png)
 
+## Data
+[center information](https://docs.google.com/spreadsheets/d/1A-AxJb6PVn5buHV0VAlvpt_rOeJEV8YFpC7TzqqRDvY/edit?usp=sharing)
+
 ## Deck
 [](https://docs.google.com/presentation/d/1FBdwonbgkiIN_ywfEO-F2bEglKLC_Yj7IRpijFxeNtQ/edit?usp=sharing)
 
