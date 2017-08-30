@@ -72,6 +72,9 @@ Examples: $X per student monthly license; $XXX per school annual subscription; F
 
 - Briefly describe the revenue model for your EARLY LEARNING-RELATED products and your plans for sustainability and scalability.
 
+- describe how a user will user your product
+We help the parent make the right decision concerning the school in the first place. We want to collect a lot of data about the child and recommend preschools based on the child and the families interests. By placing an emphasis on the initial decision making process and making that process seamless we hope that the learning experience for that child improves because they are in an environment which is suited for their needs. We envision parents creating a profile for themselves and identifying other primary care providers who may be affiliated with any one of their children. We then want to enable parents to create a profile for each one of their children, sharing their interests, sleep schedule, food preferences, health restrictions, extra curricular activities, primary modes of transportation, family income level, and amount of social interaction. With this kind of specific data we can figure out what price the family can afford and automatically send scholarship applications for parents. We can also alter parents when a space becomes available in a preschool they are interested in, or find out about great preschools in their area with available space.
+
 ### Business / Finance
 
 ### Research
